@@ -34,20 +34,13 @@
         inherit system overlays;
       };
 
-      # # Build purescm 1.12.0 from npm
-      # # nixpkgs has outdated 1.8.2 which is incompatible with the current package set
-      # purescm = pkgs.callPackage ./nix/purescm/package.nix {};
-
     in {
       legacyPackages = pkgs;
 
       devShell = pkgs.mkShell {
         inherit name;
-        # CHEZ_DYLD_LIBRARY_PATH = "${pkgs.pcre2.out}/lib:${pkgs.icu.out}/lib";
-        # LD_LIBRARY_PATH = "${pkgs.pcre2.out}/lib:${pkgs.icu.out}/lib";
 
         buildInputs = with pkgs; [
-
           esbuild
           nodejs_20
           nixpkgs-fmt
@@ -56,12 +49,6 @@
           purs-backend-es
           purescript-language-server
           spago-unstable
-
-          # purescm  # custom 1.12.0 build (replaces nixpkgs version)
-          chez
-          pcre2
-          # icu
-
         ] ++ (pkgs.lib.optionals (system == "aarch64-darwin")
           (with pkgs.darwin.apple_sdk.frameworks; [
             Cocoa
