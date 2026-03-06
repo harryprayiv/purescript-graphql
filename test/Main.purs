@@ -4,16 +4,15 @@ module Test.Main where
 import Prelude
 
 import Effect (Effect)
-import Effect.Aff (launchAff_)
 import Test.Async (asyncTest)
 import Test.GraphQL.Execution (executionSpec, introspectionSpec)
 import Test.GraphQL.Execution.Result (executionResultSpec)
 import Test.GraphQL.Language.Parser (parserSpec)
 import Test.Spec.Reporter (consoleReporter)
-import Test.Spec.Runner (runSpec)
+import Test.Spec.Runner.Node (runSpecAndExitProcess)
 
 main :: Effect Unit
-main = launchAff_ $ runSpec [consoleReporter] do
+main = runSpecAndExitProcess [consoleReporter] do
   parserSpec
   executionSpec
   introspectionSpec

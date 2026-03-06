@@ -25,6 +25,6 @@ else instance OptionallyParallel Effect Effect where
   optionallyParallel = identity
   optionallySequential = identity
 
-else instance (Parallel f m) => OptionallyParallel f m where
+else instance (Applicative f, Monad m, Parallel f m) => OptionallyParallel f m where
   optionallyParallel = parallel
   optionallySequential = sequential

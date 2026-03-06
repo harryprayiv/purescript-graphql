@@ -1,0 +1,50 @@
+package:
+  name: graphql
+  dependencies:
+    - console
+    - effect
+    - prelude
+    - aff
+    - argonaut
+    - argonaut-codecs
+    - argonaut-core
+    - arrays
+    - bifunctors
+    - console
+    - control
+    - datetime
+    - debug
+    - effect
+    - either
+    - enums
+    - exceptions
+    - foldable-traversable
+    - foreign-object
+    - functors
+    - integers
+    - lists
+    - maybe
+    - newtype
+    - now
+    - numbers
+    - ordered-collections
+    - parallel
+    - prelude
+    - psci-support
+    - record
+    - spec
+    - spec-node
+    - string-parsers
+    - strings
+    - transformers
+    - tuples
+    - typelevel-prelude
+    - unsafe-coerce
+    - variant
+  test:
+    main: Test.Main
+    dependencies: []
+workspace:
+  packageSet:
+    registry: 73.3.0
+  extraPackages: {}
